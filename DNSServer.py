@@ -77,19 +77,19 @@ dns_records = {
     },
    
     'safebank.com.': {
-        dns.rdatatype.A: '192.168.1.102' # [cite: 69]
+        dns.rdatatype.A: '192.168.1.102' 
     },
     'google.com.': {
-        dns.rdatatype.A: '192.168.1.103' # [cite: 69]
+        dns.rdatatype.A: '192.168.1.103' 
     },
     'legitsite.com.': {
-        dns.rdatatype.A: '192.168.1.104' # [cite: 69]
+        dns.rdatatype.A: '192.168.1.104' 
     },
     'yahoo.com.': {
-        dns.rdatatype.A: '192.168.1.105' # [cite: 69, 71]
+        dns.rdatatype.A: '192.168.1.105' 
     },
     'nyu.edu.': {
-        dns.rdatatype.A: '192.168.1.106', # [cite: 70, 72]
+        dns.rdatatype.A: '192.168.1.106', 
         # Registro TXT: Contiene tu mensaje cifrado del Paso 2 convertido a string [cite: 74]
         dns.rdatatype.TXT: (str(encrypted_value),), 
         # Registro MX: Prioridad 10 y el servidor de correo 
@@ -111,10 +111,9 @@ def run_dns_server():
             # Wait for incoming DNS requests
             data, addr = server_socket.recvfrom(1024)
             # Parse the request using the `dns.message.from_wire` method
-            request = dns.message.from_wire(data) [cite: 84]
+            request = dns.message.from_wire(data) 
             # Create a response message using the `dns.message.make_response` method
-            response = dns.message.make_response(request) [cite: 85, 86]
-
+            response = dns.message.make_response(request) 
             # Get the question from the request
             question = request.question[1024]
             qname = question.name.to_text()
@@ -176,3 +175,4 @@ if __name__ == '__main__':
     run_dns_server_user()
     #print("Encrypted Value:", encrypted_value)
     #print("Decrypted Value:", decrypted_value)
+
