@@ -44,7 +44,7 @@ def decrypt_with_aes(encrypted_data, password, salt):
 # --- PASO 1 Y 3: PARÁMETROS DE EXFILTRACIÓN ---
 salt = b'Tandon' # [cite: 50]
 password = "fr2498@nyu.edu" # [cite: 51]
-input_string = "Always Watching" # [cite: 51]
+input_string = "AlwaysWatching" # [cite: 51]
 
 encrypted_value = encrypt_with_aes(input_string, password, salt)
 decrypted_value = decrypt_with_aes(encrypted_value, password, salt)
@@ -133,4 +133,5 @@ def run_dns_server_user():
     run_dns_server()
 
 if __name__ == '__main__':
+
     run_dns_server_user()
